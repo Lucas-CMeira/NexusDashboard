@@ -1,0 +1,5 @@
+● Lista com pelo menos 10 usuários.
+● Lista com pelo menos 30 movimentações iniciais.
+● Ativos mínimos (mocks): BRL, BTC, ETH, USDT.
+● Tipos de movimentação: DEPOSIT e WITHDRAW.
+● Status de usuário: ACTIVE, PENDING, BLOCKED
