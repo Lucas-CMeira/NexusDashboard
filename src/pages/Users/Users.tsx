@@ -1,20 +1,13 @@
-import { usersMocks} from "../../mocks/users-mocks"
+import { usersMocks } from "../../mocks/users-mocks";
 
 function Users() {
-
   return (
     <div className="min-h-screen bg-gray-100 p-10">
-
       <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-6">
-
-        <h1 className="text-2xl font-semibold text-gray-800 mb-6">
-          Users
-        </h1>
+        <h1 className="text-2xl font-semibold text-gray-800 mb-6">Users</h1>
 
         <div className="overflow-x-auto">
-
           <table className="w-full">
-
             <thead>
               <tr className="text-left text-gray-500 border-b">
                 <th className="p-3">Nome</th>
@@ -26,7 +19,6 @@ function Users() {
             </thead>
 
             <tbody>
-
               {usersMocks.map((user) => (
                 <tr
                   key={user.email}
@@ -43,17 +35,12 @@ function Users() {
                   <td className="p-3 text-gray-600">{user.lastActivity}</td>
                 </tr>
               ))}
-
             </tbody>
-
           </table>
-
         </div>
-
       </div>
-
     </div>
-  )
+  );
 }
 
-export default Users
+export default Users;
