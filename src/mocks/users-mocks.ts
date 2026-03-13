@@ -1,70 +1,46 @@
 import type { User } from "../types/User"
 
-
-const users: User[] = [
-    {
-        email: "lucas@teste.com",
-        firstName: "Lucas",
-        lastName: "Campos",
-        password: "lucas123"
-    },
-    {
-        email: "pedro@teste.com",
-        firstName: "Pedro",
-        lastName: "Henrique",
-        password: "pedro123"
-    },
-    {
-        email:"thiago@teste.com",
-        firstName: "Thiago",
-        lastName: "Cardoso",
-        password: "thiago123"
-    },
-    {
-        email: "felipe@teste.com",
-        firstName: "Felipe",
-        lastName: "Antunes",
-        password: "felipe123"
-    },
-    {
-        email: "leonardo@teste.com",
-        firstName: "Leonardo",
-        lastName: "Augusto",
-        password: "leonardo123"
-    },
-    {
-        email: "matheus@teste.com",
-        firstName: "Matheus",
-        lastName: "Chiqueto",
-        password: "matheus123"
-    },
-    {
-        email: "gilberto@teste.com",
-        firstName: "Gilberto",
-        lastName: "Netto",
-        password: "gIlberto123"
-    },
-    {
-        email: "miguel@teste.com",
-        firstName: "Miguel",
-        lastName: "Ribeiro",
-        password: "miguel123"
-    },
-    {
-        email: "ricardo@teste.com",
-        firstName: "Ricardo",
-        lastName: "Gonçalves",
-        password: "ricardo123"
-    },
-    {
-        email: "carlos@teste.com",
-        firstName: "Carlos",
-        lastName: "Eduardo",
-        password: "carlos123"
-    }
-
+const usersMocks: User[] = [
+  {
+    name: "Lucas Campos",
+    email: "lucas@teste.com",
+    password:"lucas123",
+    status: "Active",
+    createdAt: "2026-01-10",
+    lastActivity: "2026-01-20"
+  },
+  {
+    name: "Pedro Henrique",
+    email: "pedro@teste.com",
+    status: "Pending",
+    password:"pedro123",
+    createdAt: "2026-01-12",
+    lastActivity: "2026-01-21"
+  },
+  {
+    name: "Thiago Cardoso",
+    email: "thiago@teste.com",
+    status: "Blocked",
+    password:"thiago123",
+    createdAt: "2026-06-15",
+    lastActivity: "2026-06-22"
+  },
+  {
+    name: "Felipe Antunes",
+    email: "felipe@teste.com",
+    status: "Active",
+    password:"felipe123",
+    createdAt: "2026-06-18",
+    lastActivity: "2026-06-23"
+  },
+  {
+    name: "Leonardo Augusto",
+    email: "leonardo@teste.com",
+    status: "Active",
+    password:"leonardo123",
+    createdAt: "2026-06-20",
+    lastActivity: "2026-06-24"
+  }
 ]
 
-export {
-    users
-}
+export { usersMocks }

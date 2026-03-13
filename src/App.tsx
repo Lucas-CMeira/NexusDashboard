@@ -1,9 +1,14 @@
-import React from 'react'
+import { Outlet} from "react-router-dom";
+import routes from "./routes/routes";
 
-const App = () => {
+function App() {
   return (
-    <div>App</div>
-  )
+    <div className="w-full h-full min-h-screen">
+      <div className="p-4">
+        <Outlet />
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
