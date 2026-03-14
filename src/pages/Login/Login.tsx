@@ -1,34 +1,26 @@
-import { useNavigate } from "react-router-dom";
 import { useState, type SubmitEvent } from "react";
-import useAuth from "../../services/auth-service";
+import useAuth from "../../hooks/useAuth";
 
 function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const { handleLogin } = useAuth()
-  const navigate = useNavigate()
+
+  console.log(email)
 
   function handleSubmit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault(); 
 
-    console.log("Enviou o formulario");
-    console.log(email);
-    console.log(password);
-    const response = handleLogin(email,password)
-
+    const response = handleLogin(email, password)
+      
     if(!response.success){
-      console.log(response.error)
+      alert(response.error?.message)
       return
     }
-    console.log("Usuario autenticado:" , response.user)
-    navigate("/")
-    
-    // recebe o LoginResponse. Se tiver erro, joga o erro na tela e trata element
-    // se der certo, chama o contexto salva o usuario no estado global do contexto -> redireciona para rota "/"
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-blue-600">
+    <div className="w-full h-60 bg-amber-300 border-2 p-4">
       <div className="bg-white w-full max-w-md p-10 rounded-xl shadow-2xl">
         <h1 className="text-3xl font-semibold text-center text-gray-800 mb-8">
           Login
