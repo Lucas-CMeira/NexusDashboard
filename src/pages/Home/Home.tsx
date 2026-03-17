@@ -69,7 +69,7 @@ function Home() {
 
   return (
     <div className="p-10 bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
-      <h1 className="text-3xl font-bold text-gray-800 mb-8">Dashboard Financeiro</h1>
+      <h1 className="text-3xl font-bold text-gray-800 mb-8">Dashboard Nexus</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {stats.map((stat, index) => (
           <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
