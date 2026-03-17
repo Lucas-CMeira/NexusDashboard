@@ -11,10 +11,6 @@ const routes = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "/Users",
-    element: <Users />,
-  },
-  {
     path: "/",
     element: <App />,
     children: [
@@ -23,6 +19,11 @@ const routes = createBrowserRouter([
         element: <Home />,
         index: true,
       },
+      {
+        path:"/Users",
+        element: <Users />,
+        index: true,
+      }
       // {
       //   path: "/deposit"
       // }

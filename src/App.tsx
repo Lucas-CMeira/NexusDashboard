@@ -1,12 +1,14 @@
-import { Outlet} from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import routes from "./routes/routes";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div className="w-full h-full min-h-screen">
-      <div className="p-4">
+      <Navbar />
+      <main className="flex-1 p-4">
         <Outlet />
-      </div>
+      </main>
     </div>
   );
 }
