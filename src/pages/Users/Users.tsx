@@ -7,7 +7,7 @@ function Users() {
   const [sortOrder, setSortOrder] = useState("asc");
   const [currentPage, setCurrentPage] = useState(1);
 
-  const usersPerPage = 10;
+  const usersPerPage = 5;
 
   const filteredByName = usersMocks.filter((user) =>
     user.name.toLowerCase().includes(searchName.toLowerCase()),
@@ -36,14 +36,14 @@ function Users() {
   return (
     <div className="min-h-screen bg-gray-100 p-10">
       <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-6">
-        <h1 className="text-2xl font-semibold text-gray-800 mb-6">Users</h1>
+        <h1 className="text-2xl font-semibold text-gray-800 mb-6">Usuários Ativos</h1>
 
         {/* filtros */}
         <div className="flex flex-wrap gap-4 mb-6">
           <input
             type="text"
             placeholder="Buscar por nome..."
-            value={searchName}
+            value={searchName}  
             onChange={(e) => {
               setSearchName(e.target.value);
               setCurrentPage(1);
@@ -119,7 +119,7 @@ function Users() {
           {Array.from({ length: totalPages }, (_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentPage}
+              onClick={() => setCurrentPage(index + 1)}
               className={`px-3 py-1 rounded ${
                 currentPage === index + 1
                   ? "bg-blue-600 text-white"

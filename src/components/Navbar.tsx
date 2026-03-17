@@ -10,16 +10,16 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Users", path: "/users" },
-    { name: "Deposit", path: "/deposit" },
-    { name: "Withdraw", path: "/withdraw" },
-    { name: "Conversion", path: "/conversion" },
+    { name: "Usuários", path: "/users" },
+    { name: "Depósitos", path: "/deposit" },
+    { name: "Saques", path: "/withdraw" },
+    { name: "Conversão", path: "/conversion" },
   ];
 
   return (
     <nav className="w-full bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <div className="text-xl font-bold text-gray-800">Nexus Dashboard</div>
+        <div className="text-xl font-bold text-gray-800">Dashboard</div>
         <div className="flex items-center gap-6">
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
