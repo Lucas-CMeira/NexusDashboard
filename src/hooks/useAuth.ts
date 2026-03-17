@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { usersMocks } from "../mocks/users-mocks"
 import { useContext } from "react"
 import { UserContext } from "../context/user-context"
+import { initializeUserBalance } from "../services/balance-service"
 
 
 interface LoginResponse {
@@ -16,7 +17,7 @@ interface LoginResponse {
 export default function useAuth() {
 
     const navigate = useNavigate()
-    const {setUser} = useContext(UserContext)
+    const {setUser, logout: contextLogout} = useContext(UserContext)
 
     function handleLogin(email: string, password: string): LoginResponse {
 
@@ -36,6 +37,9 @@ export default function useAuth() {
         }
 
         setUser(user)
+        
+        // Inicializa o saldo do usuário se não existir
+        initializeUserBalance(user.email)
 
         navigate("/")
 
@@ -45,9 +49,15 @@ export default function useAuth() {
 
     }
 
+    function logout() {
+        contextLogout()
+        navigate("/login")
+    }
+
 
     return {
-        handleLogin
+        handleLogin,
+        logout
     }
 }
 

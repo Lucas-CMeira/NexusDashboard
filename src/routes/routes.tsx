@@ -4,6 +4,10 @@ import Login from "../pages/Login/Login";
 import Home from "../pages/Home/Home";
 import Users from "../pages/Users/Users";
 import App from "../App";
+import Deposit from "../pages/Deposit/Deposit";
+import Withdraw from "../pages/Withdraw/Withdraw";
+import Conversion from "../pages/Convertion/Convertion";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 const routes = createBrowserRouter([
   {
@@ -12,7 +16,11 @@ const routes = createBrowserRouter([
   },
   {
     path: "/",
-    element: <App />,
+    element: (
+      <ProtectedRoute>
+        <App />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: "/",
@@ -20,13 +28,25 @@ const routes = createBrowserRouter([
         index: true,
       },
       {
-        path:"/Users",
+        path: "/Users",
         element: <Users />,
         index: true,
-      }
-      // {
-      //   path: "/deposit"
-      // }
+      },
+      {
+        path: "/Deposit",
+        element: <Deposit />,
+        index: true,
+      },
+      {
+        path: "/Withdraw",
+        element: <Withdraw />,
+        index: true,
+      },
+      {
+        path: "/Conversion",
+        element: <Conversion />,
+        index: true,
+      },
     ],
   },
 ]);
