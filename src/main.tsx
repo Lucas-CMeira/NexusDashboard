@@ -4,9 +4,8 @@ import routes from "./routes/routes";
 import { UserContextProvider } from "./context/user-context";
 import "./index.css";
 
-
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <UserContextProvider>
     <RouterProvider router={routes} />
-  </UserContextProvider>
+  </UserContextProvider>,
 );
