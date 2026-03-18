@@ -13,8 +13,8 @@ export function deposit(amount: number, userId: string, asset?: Asset, observati
     amount,
     date: new Date().toISOString(),
     userId,
-    asset, // Inclui o ativo na transação
-    observation, // Inclui a observação na transação
+    asset,
+    observation, 
   });
 
   updateUserBalance(userId, amount, 'deposit');

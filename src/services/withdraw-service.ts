@@ -19,7 +19,7 @@ export function withdraw(amount: number, userId: string, asset?: Asset) {
     amount,
     date: new Date().toISOString(),
     userId,
-    asset, // Inclui o ativo na transação
+    asset, 
   });
 
   updateUserBalance(userId, amount, 'withdraw');

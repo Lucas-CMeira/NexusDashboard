@@ -23,20 +23,17 @@ export function useWithdraw() {
     setIsLoading(true);
     
     try {
-      // Processa o saque
       withdraw(parseFloat(amount), selectedUser, selectedAsset);
       
       alert(`Saque de ${selectedAsset.icon} ${amount} ${selectedAsset.code} realizado com sucesso!`);
       
-      // Resetar formulário
       setSelectedUser('');
       setSelectedAsset(null);
       setAmount('');
       
-      // Redirecionar para home
       navigate('/');
-    } catch (error: any) {
-      alert(error.message || 'Erro ao processar saque. Tente novamente.');
+    } catch (error: unknown) {
+      alert(error instanceof Error ? error.message : 'Erro ao processar saque. Tente novamente.');
     } finally {
       setIsLoading(false);
     }

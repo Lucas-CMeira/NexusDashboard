@@ -47,20 +47,16 @@ function Home() {
 
   const formatTransactionAmount = (transaction: any) => {
     if (transaction.asset) {
-      // Se tem ativo, mostra: 20 Bitcoins, 0.5 Ethereum, etc.
       return `${transaction.amount} ${transaction.asset.name}`;
     } else {
-      // Se não tem ativo (transações antigas), mostra formato padrão
       return `R$ ${transaction.amount}`;
     }
   };
 
   const formatTransactionValue = (transaction: any) => {
     if (transaction.asset) {
-      // Mostra o símbolo do ativo + valor
       return `${transaction.asset.icon} ${transaction.amount}`;
     } else {
-      // Formato padrão para BRL
       return `R$ ${transaction.amount}`;
     }
   };
@@ -68,28 +64,42 @@ function Home() {
   const lastTransactions = [...transactions].slice(-5).reverse();
 
   return (
-    <div className="p-10 bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <div className="p-10 bg-linear-to-br from-blue-50 to-indigo-100 min-h-screen">
       <h1 className="text-3xl font-bold text-gray-800 mb-8">Dashboard Nexus</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {stats.map((stat, index) => (
-          <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div
+            key={index}
+            className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
             <p className="text-gray-500 text-sm mb-2">{stat.title}</p>
             <h2 className="text-2xl font-bold text-gray-800">{stat.value}</h2>
           </div>
         ))}
       </div>
       <div className="bg-white p-6 rounded-xl shadow-lg">
-        <h2 className="text-xl font-semibold text-gray-800 mb-6">Últimas movimentações</h2>
+        <h2 className="text-xl font-semibold text-gray-800 mb-6">
+          Últimas movimentações
+        </h2>
 
         {lastTransactions.length === 0 ? (
-          <p className="text-gray-500 text-center py-8">Nenhuma movimentação encontrada</p>
+          <p className="text-gray-500 text-center py-8">
+            Nenhuma movimentação encontrada
+          </p>
         ) : (
           lastTransactions.map((t) => (
-            <div key={t.id} className="flex justify-between items-center border-b border-gray-200 py-4 hover:bg-gray-50 transition-colors">
+            <div
+              key={t.id}
+              className="flex justify-between items-center border-b border-gray-200 py-4 hover:bg-gray-50 transition-colors"
+            >
               <div className="flex items-center gap-3">
-                <div className={`w-2 h-2 rounded-full ${t.type === "deposit" ? "bg-green-500" : "bg-red-500"}`}></div>
+                <div
+                  className={`w-2 h-2 rounded-full ${t.type === "deposit" ? "bg-green-500" : "bg-red-500"}`}
+                ></div>
                 <div className="flex flex-col">
-                  <span className={`font-medium ${getTransactionColor(t.type)}`}>
+                  <span
+                    className={`font-medium ${getTransactionColor(t.type)}`}
+                  >
                     {getTransactionLabel(t.type)}
                   </span>
                   {t.asset && (
@@ -106,10 +116,11 @@ function Home() {
               </div>
               <div className="flex items-center gap-4">
                 <span className="text-gray-600 text-sm">
-                  {new Date(t.date).toLocaleDateString('pt-BR')}
+                  {new Date(t.date).toLocaleDateString("pt-BR")}
                 </span>
                 <span className={`font-bold ${getTransactionColor(t.type)}`}>
-                  {t.type === "deposit" ? "+" : "-"}{formatTransactionValue(t)}
+                  {t.type === "deposit" ? "+" : "-"}
+                  {formatTransactionValue(t)}
                 </span>
               </div>
             </div>

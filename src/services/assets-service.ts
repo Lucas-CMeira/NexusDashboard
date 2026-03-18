@@ -19,9 +19,7 @@ export const ASSETS: Asset[] = [
   { code: 'USDT', name: 'Tether', icon: '₮' },
 ];
 
-// Simula depósito (API real: NÃO)
 export function simulateDeposit(request: DepositRequest): { success: boolean; message: string } {
-  // Simulação de API - sempre retorna sucesso
   console.log('Depósito simulado:', request);
   
   return {

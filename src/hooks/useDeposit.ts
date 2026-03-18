@@ -35,21 +35,18 @@ export function useDeposit() {
       const apiResult = simulateDeposit(request);
       
       if (apiResult.success) {
-        // Registra a transação internamente com o ativo e observação
         deposit(parseFloat(amount), selectedUser, selectedAsset, observation || undefined);
         
         alert(apiResult.message);
         
-        // Resetar formulário
         setSelectedUser('');
         setSelectedAsset(null);
         setAmount('');
         setObservation('');
         
-        // Redirecionar para home
         navigate('/');
       }
-    } catch (error) {
+    } catch {
       alert('Erro ao processar depósito. Tente novamente.');
     } finally {
       setIsLoading(false);

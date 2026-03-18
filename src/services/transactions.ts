@@ -6,11 +6,10 @@ type Transaction = {
   amount: number;
   date: string;
   userId?: string;
-  asset?: Asset; // Novo campo para o ativo
-  observation?: string; // Campo para observação do usuário
+  asset?: Asset; 
+  observation?: string; 
 };
 
-// Carrega transações do localStorage ou usa array vazio
 const loadTransactions = (): Transaction[] => {
   const stored = localStorage.getItem('transactions');
   return stored ? JSON.parse(stored) : [];
@@ -18,7 +17,6 @@ const loadTransactions = (): Transaction[] => {
 
 let transactions: Transaction[] = loadTransactions();
 
-// Salva transações no localStorage
 const saveTransactions = () => {
   localStorage.setItem('transactions', JSON.stringify(transactions));
 };

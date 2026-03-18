@@ -6,7 +6,6 @@ interface UserBalance {
   lastUpdated: string;
 }
 
-// Carrega saldos do localStorage ou usa objeto vazio
 const loadBalances = (): Record<string, UserBalance> => {
   const stored = localStorage.getItem('userBalances');
   return stored ? JSON.parse(stored) : {};
@@ -14,7 +13,6 @@ const loadBalances = (): Record<string, UserBalance> => {
 
 let balances: Record<string, UserBalance> = loadBalances();
 
-// Salva saldos no localStorage
 const saveBalances = () => {
   localStorage.setItem('userBalances', JSON.stringify(balances));
 };

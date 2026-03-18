@@ -36,14 +36,15 @@ function Users() {
   return (
     <div className="min-h-screen bg-gray-100 p-10">
       <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-6">
-        <h1 className="text-2xl font-semibold text-gray-800 mb-6">Usuários Ativos</h1>
+        <h1 className="text-2xl font-semibold text-gray-800 mb-6">
+          Usuários Ativos
+        </h1>
 
-        {/* filtros */}
         <div className="flex flex-wrap gap-4 mb-6">
           <input
             type="text"
             placeholder="Buscar por nome..."
-            value={searchName}  
+            value={searchName}
             onChange={(e) => {
               setSearchName(e.target.value);
               setCurrentPage(1);

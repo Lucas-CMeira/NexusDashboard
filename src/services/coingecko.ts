@@ -27,7 +27,6 @@ export const SUPPORTED_CRYPTOS: CryptoCurrency[] = [
   { id: 'chainlink', name: 'Chainlink', symbol: 'LINK' },
 ];
 
-// Adicionamos moedas fiduciárias para conversão
 export const SUPPORTED_FIATS: CryptoCurrency[] = [
   { id: 'usd', name: 'US Dollar', symbol: 'USD' },
   { id: 'brl', name: 'Brazilian Real', symbol: 'BRL' },
@@ -49,7 +48,6 @@ export async function getExchangeRate(fromId: string, toId: string): Promise<num
   const toIsFiat = isFiat(toId);
 
   try {
-    // crypto -> crypto and crypto -> fiat
     if (!fromIsFiat) {
       const targetCurrency = toIsFiat ? toId : toId;
       const response = await fetch(
@@ -70,7 +68,6 @@ export async function getExchangeRate(fromId: string, toId: string): Promise<num
       return rate;
     }
 
-    // fiat -> crypto (ex: BRL -> BTC)
     if (fromIsFiat && !toIsFiat) {
       const response = await fetch(
         `${COINGECKO_BASE}/simple/price?ids=${toId}&vs_currencies=${fromId}`
@@ -90,7 +87,6 @@ export async function getExchangeRate(fromId: string, toId: string): Promise<num
       return 1 / inverseRate;
     }
 
-    // fiat -> fiat (valor aproximado usando taxas fixas)
     if (fromIsFiat && toIsFiat) {
       const fiatBaseRates: Record<string, number> = {
         usd: 1,

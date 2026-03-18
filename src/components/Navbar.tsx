@@ -18,7 +18,6 @@ const Navbar = () => {
     { name: "Conversão", path: "/Conversion" },
   ];
 
-  // Não mostrar navbar na página de login
   if (location.pathname === "/login") {
     return null;
   }

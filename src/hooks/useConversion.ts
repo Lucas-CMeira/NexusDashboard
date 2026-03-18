@@ -13,7 +13,6 @@ export function useConversion() {
   const [error, setError] = useState<string | null>(null);
 
   const handleConvert = async () => {
-    // Validações
     if (!fromCurrency) {
       setError('Selecione a moeda de origem');
       return;
@@ -40,8 +39,9 @@ export function useConversion() {
       );
 
       setResult(conversionResult);
-    } catch (err: any) {
-      setError(err.message || 'Erro ao realizar conversão');
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Erro ao realizar conversão';
+      setError(errorMessage);
       setResult(null);
     } finally {
       setIsLoading(false);

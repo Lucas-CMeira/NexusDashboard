@@ -83,10 +83,4 @@ const usersMocks: User[] = [
   },
 ]
 
-
-// Colocar barra de pesquisa(por nome)
-// Pesquisar por data de criação
-// Paginação
-// Ordem alfabetica
-
 export { usersMocks }
