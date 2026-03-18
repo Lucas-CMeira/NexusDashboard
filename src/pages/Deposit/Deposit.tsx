@@ -24,7 +24,7 @@ function Deposit() {
   }
 
   return (
-    <div className="p-10 bg-linear-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 flex items-center justify-center px-4 py-6 sm:px-6 sm:py-8 md:px-10 md:py-10">
       <div className="bg-white p-8 rounded-xl shadow-lg max-w-2xl w-full">
         <div className="flex items-center gap-3 mb-8">
           <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">

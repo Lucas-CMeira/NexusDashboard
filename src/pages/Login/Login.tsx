@@ -24,16 +24,16 @@ function Login() {
   }
 
   return (
-      <div>
-        <Popup
-          show={showPopup}
-          title="Erro no login"
-          description={popupMessage}
-          variant="error"
-        />
+    <div>
+      <Popup
+        show={showPopup}
+        title="Erro no login"
+        description={popupMessage}
+        variant="error"
+      />
 
-      <div className="flex justify-center items-center m-30">
-        <div className="bg-white w-full max-w-md p-10 rounded-xl shadow-2xl">
+      <div className="flex justify-center items-center min-h-screen px-4 py-8 sm:px-6 sm:py-10">
+        <div className="bg-white w-full max-w-md p-6 sm:p-8 rounded-xl shadow-2xl">
           <h1 className="text-3xl font-semibold text-center text-gray-800 mb-8">
             Login
           </h1>

@@ -34,7 +34,7 @@ function Users() {
   const totalPages = Math.ceil(sortedUsers.length / usersPerPage);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-10">
+    <div className="min-h-screen bg-gray-100 px-4 py-6 sm:px-6 sm:py-8 md:px-10 md:py-10">
       <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-6">
         <h1 className="text-2xl font-semibold text-gray-800 mb-6">
           Usuários Ativos
