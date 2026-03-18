@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { getUserTransactions } from "../../services/transactions";
 import { getUserBalance } from "../../services/balance-service";
+import { ASSETS } from "../../services/assets-service";
 import { UserContext } from "../../context/user-context";
 
 function Home() {
@@ -29,6 +30,28 @@ function Home() {
 
   const volume = totalDeposit + totalWithdraw;
   const currentBalance = userBalance?.balance || 0;
+
+  const assetBalances = ASSETS.map((asset) => {
+    const balance = transactions.reduce((acc, t) => {
+      const code = t.asset?.code || "BRL";
+      if (code !== asset.code) {
+        return acc;
+      }
+      return acc + (t.type === "deposit" ? t.amount : -t.amount);
+    }, 0);
+
+    return {
+      ...asset,
+      balance,
+    };
+  });
+
+  const formatAssetBalance = (assetCode: string, balance: number) => {
+    if (assetCode === "BRL") {
+      return `R$ ${balance.toFixed(2)}`;
+    }
+    return `${balance.toFixed(8)} ${assetCode}`;
+  };
 
   const stats = [
     { title: "Saldo Atual", value: `R$ ${currentBalance}` },
@@ -80,6 +103,27 @@ function Home() {
             </div>
           ))}
         </div>
+
+        <div className="bg-white p-6 rounded-xl shadow-lg mb-8">
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">
+            Saldos por Ativo
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {assetBalances.map((asset) => (
+              <div
+                key={asset.code}
+                className="border border-gray-200 rounded-xl p-4 flex flex-col items-center justify-center"
+              >
+                <span className="text-3xl mb-2">{asset.icon}</span>
+                <p className="text-sm text-gray-500">{asset.name}</p>
+                <h3 className="text-lg font-bold text-gray-800 mt-1">
+                  {formatAssetBalance(asset.code, asset.balance)}
+                </h3>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="bg-white p-6 rounded-xl shadow-lg">
           <h2 className="text-xl font-semibold text-gray-800 mb-6">
             Últimas movimentações

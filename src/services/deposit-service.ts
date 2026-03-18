@@ -14,10 +14,10 @@ export function deposit(amount: number, userId: string, asset?: Asset, observati
     date: new Date().toISOString(),
     userId,
     asset,
-    observation, 
+    observation,
   });
 
-  updateUserBalance(userId, amount, 'deposit');
+  updateUserBalance(userId, amount, 'deposit', asset?.code || 'BRL');
 
   return { success: true };
 }

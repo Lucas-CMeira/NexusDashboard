@@ -8,8 +8,15 @@ export function withdraw(amount: number, userId: string, asset?: Asset) {
   }
 
   const userBalance = getUserBalance(userId);
-  
-  if (!userBalance || amount > userBalance.balance) {
+  const assetCode = asset?.code || 'BRL';
+
+  if (!userBalance) {
+    throw new Error("Saldo insuficiente");
+  }
+
+  const availableByAsset = userBalance.assetBalances?.[assetCode] ?? 0;
+
+  if (amount > availableByAsset) {
     throw new Error("Saldo insuficiente");
   }
 
@@ -19,10 +26,10 @@ export function withdraw(amount: number, userId: string, asset?: Asset) {
     amount,
     date: new Date().toISOString(),
     userId,
-    asset, 
+    asset,
   });
 
-  updateUserBalance(userId, amount, 'withdraw');
+  updateUserBalance(userId, amount, 'withdraw', assetCode);
 
   return { success: true };
 }

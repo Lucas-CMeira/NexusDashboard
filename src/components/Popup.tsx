@@ -1,5 +1,3 @@
-import React from "react";
-
 interface PopupProps {
   show: boolean;
   title: string;
