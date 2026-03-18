@@ -29,7 +29,6 @@ Sistema web desenvolvido como desafio prático de Front-end, com foco em gerenci
 ## 🌐 Integração Externa
 
 * API de criptomoedas (CoinGecko)
-* Conversão em tempo real de BRL → BTC
 
 ---
 
@@ -40,6 +39,16 @@ src/
   components/
     Navbar.tsx
     Popup.tsx
+    ProtectedRoute.tsx
+  context/
+    user-context.tsx
+  hooks/
+    useAuth.ts
+    useConversion.ts
+    useDeposit.ts
+    useWithdraw.ts
+  mocks/
+    users-mocks.ts
   pages/
     Home/
     Login/
@@ -48,8 +57,15 @@ src/
     Withdraw/
     Conversion/
   services/
+    assets-service.ts
+    balance-service.ts
     transactions.ts
+    users-service.ts
+    withdraw-service.ts
+    deposit-service.ts
     coingecko.ts
+  types/
+    User.ts
   routes/
     routes.tsx
   App.tsx
@@ -101,7 +117,7 @@ http://localhost:5173
 
 ## 🔐 Autenticação
 
-* Sistema de login simples
+* Sistema de login
 * Validação básica de credenciais
 * (Persistência pode ser adicionada com localStorage)
 
@@ -167,13 +183,4 @@ Este projeto foi desenvolvido com foco em boas práticas de organização, compo
 
 ---
 
-## 🏁 Conclusão
 
-O projeto demonstra habilidades em:
-
-* Construção de interfaces com React
-* Gerenciamento de estado
-* Integração com APIs externas
-* Estruturação de aplicações Front-end
-
----
