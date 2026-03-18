@@ -1,73 +1,179 @@
-# React + TypeScript + Vite
+# 🚀 Nexus Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema web desenvolvido como desafio prático de Front-end, com foco em gerenciamento de transações financeiras (depósitos, saques e conversões de moeda).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Funcionalidades
 
-## React Compiler
+* 🔐 Autenticação de usuário (login)
+* 💰 Depósito de valores
+* 💸 Saque de valores
+* 🔄 Conversão de BRL para BTC (API externa)
+* 📊 Dashboard com indicadores dinâmicos
+* 📋 Listagem de transações
+* 🧭 Navegação com Navbar persistente
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧠 Tecnologias Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* React
+* TypeScript
+* React Router DOM
+* Tailwind CSS
+* Fetch API
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🌐 Integração Externa
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* API de criptomoedas (CoinGecko)
+* Conversão em tempo real de BRL → BTC
+
+---
+
+## 📁 Estrutura do Projeto
+
+```bash id="p1"
+src/
+  components/
+    Navbar.tsx
+    Popup.tsx
+  pages/
+    Home/
+    Login/
+    Users/
+    Deposit/
+    Withdraw/
+    Conversion/
+  services/
+    transactions.ts
+    coingecko.ts
+  routes/
+    routes.tsx
+  App.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Como rodar o projeto
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. Clone o repositório
+
+```bash id="p2"
+git clone https://github.com/seu-usuario/nexus-dashboard.git
 ```
+
+---
+
+### 2. Acesse a pasta
+
+```bash id="p3"
+cd nexus-dashboard
+```
+
+---
+
+### 3. Instale as dependências
+
+```bash id="p4"
+npm install
+```
+
+---
+
+### 4. Execute o projeto
+
+```bash id="p5"
+npm run dev
+```
+
+---
+
+### 5. Acesse no navegador
+
+```bash id="p6"
+http://localhost:5173
+```
+
+---
+
+## 🔐 Autenticação
+
+* Sistema de login simples
+* Validação básica de credenciais
+* (Persistência pode ser adicionada com localStorage)
+
+---
+
+## 💰 Regras de Negócio
+
+* Depósitos aumentam o saldo
+* Saques diminuem o saldo
+* Conversões utilizam cotação em tempo real
+* Dashboard atualizado dinamicamente com base nas transações
+
+---
+
+## 📊 Dashboard
+
+Exibe:
+
+* Total depositado
+* Total sacado
+* Volume total
+* Quantidade de transações
+* Últimas movimentações
+
+---
+
+## 🔄 Conversão de Moeda
+
+* Endpoint externo: CoinGecko
+* Conversão em tempo real
+* Precisão de até 8 casas decimais
+
+---
+
+## 🚨 Tratamento de Erros
+
+* Validação de inputs
+* Mensagens de erro via Popup
+* Tratamento de falha na API externa
+
+---
+
+## 🧪 Melhorias Futuras
+
+* Persistência com backend (Node.js / NestJS)
+* Context API ou Redux
+* Sistema de autenticação real (JWT)
+* Testes automatizados
+* Responsividade completa
+
+---
+
+## 👨‍💻 Autor
+
+Lucas Campos
+Desenvolvedor Front-end em formação
+
+---
+
+## 📌 Observações
+
+Este projeto foi desenvolvido com foco em boas práticas de organização, componentização e integração com APIs externas, simulando um ambiente real de desenvolvimento.
+
+---
+
+## 🏁 Conclusão
+
+O projeto demonstra habilidades em:
+
+* Construção de interfaces com React
+* Gerenciamento de estado
+* Integração com APIs externas
+* Estruturação de aplicações Front-end
+
+---
